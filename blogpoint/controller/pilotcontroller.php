@@ -1,76 +1,76 @@
 <?php
 
-$pilotapiware = "pilotapi";
+$apiware = "pilotapi";
 
 
 if($coreUrl == "getone" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        include "./$pilotapiware/getuser.php";
+        include "./$apiware/getuser.php";
 
 }
 elseif($coreUrl == "getonebyemail" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$pilotapiware/getuserbyemail.php";
+    include "./$apiware/getuserbyemail.php";
 
 }
 elseif($coreUrl == "getall"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$pilotapiware/getusers.php";
+    include "./$apiware/getusers.php";
 
 }
 elseif($coreUrl == "createone"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$pilotapiware/createuser.php";
+    include "./$apiware/createuser.php";
 
 }
 elseif($coreUrl == "createone_wp"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$pilotapiware/createuser_wp.php";
+    include "./$apiware/createuser_wp.php";
 
 }
 elseif($coreUrl == "updateone" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
 
     // Update own updatable info (firstname, lastname and password)
-    include "./$pilotapiware/updateuser.php";
+    include "./$apiware/updateuser.php";
 
 }
 elseif($coreUrl == "deleteone" && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
 
-    include "./$pilotapiware/deleteuser.php";
+    include "./$apiware/deleteuser.php";
 
 }elseif($coreUrl == "search" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/searchuser.php";
+    include "./$apiware/searchuser.php";
 }
 elseif($coreUrl == "authcheck" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/authcheck.php";
+    include "./$apiware/authcheck.php";
 }
 elseif($coreUrl == "userlogin" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/userlogin.php";
+    include "./$apiware/userlogin.php";
 }
 elseif($coreUrl == "userlogout" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/userlogout.php";
+    include "./$apiware/userlogout.php";
 }
 elseif($coreUrl == "passchange"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
     // Users to change thier own password passwordlessly
-    include "./$pilotapiware/changepassword.php";
+    include "./$apiware/changepassword.php";
 }
 elseif($coreUrl == "passchangeother"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
     // Admins users to change thier the password of any user passwordlessly
-    include "./$pilotapiware/changepassword2.php";
+    include "./$apiware/changepassword2.php";
 }
 elseif($coreUrl == "verifyemail"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/verifyuser.php";
+    include "./$apiware/verifyuser.php";
 }
 elseif($coreUrl == "resetpass"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/resetpassword.php";
+    include "./$apiware/resetpassword.php";
 }
 else{
     http_response_code(200);
