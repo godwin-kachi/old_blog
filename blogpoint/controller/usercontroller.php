@@ -1,83 +1,83 @@
 <?php
 
-$userapiware = "userapi";
+$apiware = "userapi";
 
 
 
-if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getone" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+if($uaction == "getone" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        include "./$userapiware/getuser.php";
-
-}
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getonebyemail" && $_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    include "./$userapiware/getuserbyemail.php";
+        include "./$apiware/getuser.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getall"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "getonebyemail" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$userapiware/getusers.php";
-
-}
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/createone"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    include "./$userapiware/createuser.php";
+    include "./$apiware/getuserbyemail.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/createone_wp"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "getall"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$userapiware/createuser_wp.php";
+    include "./$apiware/getusers.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/updateone" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
+elseif($uaction == "createone"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    include "./$apiware/createuser.php";
+
+}
+elseif($uaction == "createone_wp"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    include "./$apiware/createuser_wp.php";
+
+}
+elseif($uaction == "updateone" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
 
     // Update own updatable info (firstname, lastname and password)
-    include "./$userapiware/updateuser.php";
+    include "./$apiware/updateuser.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/updateother" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
+elseif($uaction == "updateother" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
 
     // Update other user data (ftirstname, lastname, password, role_id, active)
-    include "./$userapiware/updateuser_v2.php";
+    include "./$apiware/updateuser_v2.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/deleteone" && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
+elseif($uaction == "deleteone" && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
 
-    include "./$userapiware/deleteuser.php";
+    include "./$apiware/deleteuser.php";
 
-}elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/search" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+}elseif($uaction == "search" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$userapiware/searchuser.php";
+    include "./$apiware/searchuser.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/authcheck" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "authcheck" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$userapiware/authcheck.php";
+    include "./$apiware/authcheck.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/login" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "login" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$userapiware/userlogin.php";
+    include "./$apiware/userlogin.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/logout" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "logout" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$userapiware/userlogout.php";
+    include "./$apiware/userlogout.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/passchange"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "passchange"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
     // Users to change thier own password passwordlessly
-    include "./$userapiware/changepassword.php";
+    include "./$apiware/changepassword.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/passchangeother"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "passchangeother"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
     // Admins users to change thier the password of any user passwordlessly
-    include "./$userapiware/changepassword2.php";
+    include "./$apiware/changepassword2.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/verifyemail"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "verifyemail"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$userapiware/verifyuser.php";
+    include "./$apiware/verifyuser.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/resetuserpass"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($uaction == "resetuserpass"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$userapiware/resetpassword.php";
+    include "./$apiware/resetpassword.php";
 }
 else{
     http_response_code(200);

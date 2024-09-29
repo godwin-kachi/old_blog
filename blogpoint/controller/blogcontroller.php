@@ -1,39 +1,38 @@
 <?php
-$blogapiware = "blogapi";
+$apiware = "blogapi";
 
+if($uaction == "getone" && $_SERVER['REQUEST_METHOD'] == 'GET'){
 
-if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getone"){
-
-        include "./$blogapiware/getblog.php";
-
-}
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getuserall"){
-
-    include "./$blogapiware/getuserblogs.php";
+        include "./$apiware/getblog.php";
 
 }
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getall"){
+else if($uaction == "getuserall"  && $_SERVER['REQUEST_METHOD'] == 'GET'){
 
-    include "./$blogapiware/getblogs.php";
-
-}
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/createone"){
-
-    include "./$blogapiware/createblog.php";
+    include "./$apiware/getuserblogs.php";
 
 }
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/updateone"){
+else if($uaction == "getall"  && $_SERVER['REQUEST_METHOD'] == 'GET'){
 
-    include "./$blogapiware/updateblog.php";
+    include "./$apiware/getblogs.php";
 
 }
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/deleteone"){
+else if($uaction == "createone"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$blogapiware/deleteblogs.php";
+    include "./$apiware/createblog.php";
 
-}else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/search"){
+}
+else if($uaction == "updateone"  && ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
+
+    include "./$apiware/updateblog.php";
+
+}
+else if($uaction == "deleteone" && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
+
+    include "./$apiware/deleteblogs.php";
+
+}else if($uaction == "search" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$blogapiware/searchblog.php";
+    include "./$apiware/searchblog.php";
 }
 else{
     http_response_code(200);
