@@ -1,34 +1,34 @@
 <?php
-$commentapiware = "commentapi";
+$apiware = "commentapi";
 
 
-if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getone"){
+if($uaction == "getone"  && $_SERVER['REQUEST_METHOD'] == 'GET'){
 
-        include "./$commentapiware/getcomment.php";
-
-}
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getall"){
-
-    include "./$commentapiware/getcomments.php";
+        include "./$apiware/getcomment.php";
 
 }
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/createone"){
+else if($uaction == "getall"  && $_SERVER['REQUEST_METHOD'] == 'GET'){
 
-    include "./$commentapiware/createcomment.php";
-
-}
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/updateone"){
-
-    include "./$commentapiware/updatecomments.php";
+    include "./$apiware/getcomments.php";
 
 }
-else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/deleteone"){
+else if($uaction == "createone" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$commentapiware/deletecomments.php";
+    include "./$apiware/createcomment.php";
 
-}else if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/search"){
+}
+else if($uaction == "updateone"  && ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
 
-    include "./$commentapiware/searchcomments.php";
+    include "./$apiware/updatecomments.php";
+
+}
+else if($uaction == "deleteone"  && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
+
+    include "./$apiware/deletecomments.php";
+
+}else if($uaction == "search"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    include "./$apiware/searchcomments.php";
 
 }
 else{

@@ -10,11 +10,11 @@ header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"])
 
 $reqUrlArr = explode("/", $reqUrl);
 
-$udomain = $reqUrlArr[0];
-$uapibox = $reqUrlArr[1] ?? NULL;
-$uresource = $reqUrlArr[2] ?? NULL;
-$uaction = $reqUrlArr[3] ?? NULL;
-$param_id = $reqUrlArr[4] ?? NULL;
+$udomain = $reqUrlArr[1];
+$uapibox = $reqUrlArr[2] ?? NULL;
+$uresource = $reqUrlArr[3] ?? NULL;
+$uaction = $reqUrlArr[4] ?? NULL;
+$param_id = $reqUrlArr[5] ?? NULL;
 
 $coreUrl = "$udomain/$uresource/$uaction";
 

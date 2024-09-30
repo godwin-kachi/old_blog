@@ -1,76 +1,76 @@
 <?php
 
-$pilotapiware = "pilotapi";
+$apiware = "pilotapi";
 
 
-if($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getone" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+if($coreUrl == "getone" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        include "./$pilotapiware/getuser.php";
-
-}
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getonebyemail" && $_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    include "./$pilotapiware/getuserbyemail.php";
+        include "./$apiware/getuser.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/getall"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "getonebyemail" && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$pilotapiware/getusers.php";
-
-}
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/createone"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    include "./$pilotapiware/createuser.php";
+    include "./$apiware/getuserbyemail.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/createone_wp"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "getall"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    include "./$pilotapiware/createuser_wp.php";
+    include "./$apiware/getusers.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/updateone" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
+elseif($coreUrl == "createone"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    include "./$apiware/createuser.php";
+
+}
+elseif($coreUrl == "createone_wp"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    include "./$apiware/createuser_wp.php";
+
+}
+elseif($coreUrl == "updateone" && ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'PATCH')){
 
     // Update own updatable info (firstname, lastname and password)
-    include "./$pilotapiware/updateuser.php";
+    include "./$apiware/updateuser.php";
 
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/deleteone" && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
+elseif($coreUrl == "deleteone" && $_SERVER['REQUEST_METHOD'] == 'DELETE'){
 
-    include "./$pilotapiware/deleteuser.php";
+    include "./$apiware/deleteuser.php";
 
-}elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/search" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+}elseif($coreUrl == "search" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/searchuser.php";
+    include "./$apiware/searchuser.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/authcheck" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "authcheck" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/authcheck.php";
+    include "./$apiware/authcheck.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/userlogin" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "userlogin" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/userlogin.php";
+    include "./$apiware/userlogin.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/userlogout" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "userlogout" && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/userlogout.php";
+    include "./$apiware/userlogout.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/passchange"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "passchange"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
     // Users to change thier own password passwordlessly
-    include "./$pilotapiware/changepassword.php";
+    include "./$apiware/changepassword.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/passchangeother"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "passchangeother"  && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
     // Admins users to change thier the password of any user passwordlessly
-    include "./$pilotapiware/changepassword2.php";
+    include "./$apiware/changepassword2.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/verifyemail"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "verifyemail"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/verifyuser.php";
+    include "./$apiware/verifyuser.php";
 }
-elseif($coreUrl == $configx["dbconnx"]["DOMAIN"] . "/$uresource/resetpass"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
+elseif($coreUrl == "resetpass"   && $_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    include "./$pilotapiware/resetpassword.php";
+    include "./$apiware/resetpassword.php";
 }
 else{
     http_response_code(200);
