@@ -20,7 +20,7 @@ if ($conn == null) {
 }
 
 $user = new User($conn);
-$package = new Package($conn);
+$blog = new Blog($conn);
 
 
  $data = json_decode(file_get_contents("php://input"));
@@ -73,7 +73,7 @@ if(!authGateCheck2($userData, $data)){
 
 if(isDriver($userData)){
     http_response_code(401);
-    echo json_encode(["message" => "You are Not Authorsied to delete package. Please contact your supervisor.","result" => false, "status" => 40]);
+    echo json_encode(["message" => "You are Not Authorsied to delete blog. Please contact your supervisor.","result" => false, "status" => 40]);
     return;
 }
 

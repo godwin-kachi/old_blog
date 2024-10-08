@@ -1,5 +1,13 @@
 <?php
+
+include '../config/autoloader.php';
+
+// required headers
+header("Access-Control-Allow-Origin:" . $configx["dbconnx"]["ORIGIN"]);
+header("Content-Type:" . $configx["dbconnx"]["CONTENT_TYPE"]);
 header("Access-Control-Allow-Methods:" . $configx["dbconnx"]["GET_METHOD"]);
+header("Access-Control-Max-Age:" . $configx["dbconnx"]["MAX_AGE"]);
+header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"]);
 
 // initialize object
 $db = new Database($configx);
@@ -64,9 +72,15 @@ $pilotData = $pilot_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
 // ===== Auth Gate Check ends here ===============
 
+http_response_code(404);
+echo json_encode(["message" => "User Not Authenticated.22222", "status" => 0]);
+return;
 
 // Get all users ==================================
 $stmt = $user->getAllUsers();
+
+var_dump($stmt);
+return;
 
 // check if more than 0 record found
 if ($stmt["outputStatus"] == 1000) {

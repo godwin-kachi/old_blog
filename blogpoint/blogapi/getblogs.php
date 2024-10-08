@@ -1,5 +1,13 @@
 <?php
-header("Access-Control-Allow-Methods:" . $configx["dbconnx"]["POST_METHOD"]);
+// header("Access-Control-Allow-Methods:" . $configx["dbconnx"]["POST_METHOD"]);
+
+include '../config/autoloader.php';
+
+// required headers
+header("Access-Control-Allow-Origin:" . $configx["dbconnx"]["ORIGIN"]);
+header("Content-Type:" . $configx["dbconnx"]["CONTENT_TYPE"]);
+header("Access-Control-Max-Age:" . $configx["dbconnx"]["MAX_AGE"]);
+header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"]);
 
 // initialize object
 $db = new Database($configx);
@@ -17,6 +25,10 @@ $user = new User($conn);
 $blog = new Blog($conn);
 
 $data = json_decode(file_get_contents("php://input"));
+
+// http_response_code(500);
+// echo json_encode(["user"=>$user, "blog"=>$blog, "data"=>$data, "status" => 7]);
+// return;
 
 
 /*

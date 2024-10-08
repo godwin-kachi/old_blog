@@ -1,4 +1,11 @@
 <?php
+include '../config/autoloader.php';
+
+// required headers
+header("Access-Control-Allow-Origin:" . $configx["dbconnx"]["ORIGIN"]);
+header("Content-Type:" . $configx["dbconnx"]["CONTENT_TYPE"]);
+header("Access-Control-Max-Age:" . $configx["dbconnx"]["MAX_AGE"]);
+header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"]);
 header("Access-Control-Allow-Methods:" . $configx["dbconnx"]['POST_METHOD']);
 
 // initialize object
@@ -15,7 +22,8 @@ if ($conn == null) {
 $user = new User($conn);
 
 // read user id will be here
-$user->user_id = cleanData($param_id);
+$data = json_decode(file_get_contents("php://input"));
+// $user->user_id = cleanData($param_id);
 
 
 if ((empty($user->user_id) || is_null($user->user_id) || !is_numeric($user->user_id) || $user->user_id == '')) {

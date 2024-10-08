@@ -1,4 +1,12 @@
 <?php
+include '../config/autoloader.php';
+
+// required headers
+header("Access-Control-Allow-Origin:" . $configx["dbconnx"]["ORIGIN"]);
+header("Content-Type:" . $configx["dbconnx"]["CONTENT_TYPE"]);
+header("Access-Control-Max-Age:" . $configx["dbconnx"]["MAX_AGE"]);
+header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"]);
+
 header("Access-Control-Allow-Methods:" . $configx["dbconnx"]['POST_METHOD']);
 
 // initialize object
@@ -20,7 +28,7 @@ $pilot = new Pilot($conn);
 $data = json_decode(file_get_contents("php://input"));
 
 
-
+/*
 
 // ===== Auth Gate Check =========================
 if (!authGateCheck($data)) {
@@ -69,7 +77,7 @@ $pilotData = $pilot_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
 // ===== Authorisation Gate Check ends here ===============
 
-
+*/
 // Check for valid user email
 if (empty($data->email) || $data->email == null || trim($data->email) == "" || !filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
     // set response code - 403 forbidden
@@ -185,11 +193,14 @@ if ($data->firstname != "" && $data->email != "" && $data->lastname != "" && $da
 
         // Sanitize & set user property values
         $user->firstname = $data->firstname;
+        $user->lastname = $data->lastname;
         $user->email = $data->email;
         $user->password = $data->password;
+        
 
         // create the user
         $new_user = $user->createUser();
+
 
         // var_dump($new_user);
         // return;

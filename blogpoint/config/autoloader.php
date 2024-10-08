@@ -7,10 +7,10 @@ include 'authgate.php';
 
 
 // Models
-include './models/User.php';
-include './models/Pilot.php';
-include './models/Blog.php';
-include './models/Comment.php';
+include '../models/User.php';
+include '../models/Pilot.php';
+include '../models/Blog.php';
+include '../models/Comment.php';
 
 
 

@@ -1,12 +1,12 @@
 <?php
-// include './config/autoloader.php';
+include '../config/autoloader.php';
 
-// // required headers
-// header("Access-Control-Allow-Origin:" . $configx["dbconnx"]["ORIGIN"]);
-// header("Content-Type:" . $configx["dbconnx"]["CONTENT_TYPE"]);
+// required headers
+header("Access-Control-Allow-Origin:" . $configx["dbconnx"]["ORIGIN"]);
+header("Content-Type:" . $configx["dbconnx"]["CONTENT_TYPE"]);
 header("Access-Control-Allow-Methods:" . $configx["dbconnx"]["GET_METHOD"]);
-// header("Access-Control-Max-Age:" . $configx["dbconnx"]["MAX_AGE"]);
-// header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"]);
+header("Access-Control-Max-Age:" . $configx["dbconnx"]["MAX_AGE"]);
+header("Access-Control-Allow-Headers:" . $configx["dbconnx"]["ALLOWED_HEADERS"]);
 
 // initialize object
 $db = new Database($configx);
@@ -22,20 +22,23 @@ if ($conn == null) {
 $blog = new Blog($conn);
 
 // read blog id will be here
-$blog_id = $param_id;
-// $blog_stmt = null;
+$blog_id = null;
+$blog_stmt = null;
+
+// $blog_id = $param_id;
+
 
 // Update blog_id param if it exists
-// if (!empty($_GET['blog_id'])) {
-//     $blog_id = $_GET['blog_id'];
-// } else {
+if (!empty($_GET['blog_id'])) {
+    $blog_id = $_GET['blog_id'];
+} else {
 
-//     // set response code - 404 Not found
-//     http_response_code(404);
-//     // tell the blog no products found
-//     echo json_encode(["message" => "Plaese provide a valid blog ID."]);
-//     return;
-// }
+    // set response code - 404 Not found
+    http_response_code(404);
+    // tell the blog no products found
+    echo json_encode(["message" => "Plaese provide a valid blog ID."]);
+    return;
+}
 
 
 if ((empty($blog_id) || $blog_id == null || !is_numeric($blog_id) || trim($blog_id) == '')) {

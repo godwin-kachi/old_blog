@@ -1,0 +1,56 @@
+input[type="submit"] {
+    padding: 10px;
+    border-radius: 5px;
+    background-image: 
+    linear-gradient(to right, rgb(153, 153, 224), rgb(173, 202, 173));
+    margin: 10px 0;
+    width: 6rem;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgb(216, 208, 208);
+    border-radius: 10px;
+}
+
+#faint {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+#redesign {
+    max-width: 30% !important;
+    margin: auto; 
+    background-color: rgb(238, 235, 235); 
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    background-color: rgb(209, 198, 198);
+}
+
+
+@media screen and (max-width: 728px) {
+    #faint {
+        border: 1px solid rgb(255, 255, 255);
+        background-color: transparent;
+
+    }
+    #redesign {
+        max-width: 100% !important;
+        margin: auto; 
+        background-color: rgb(238, 235, 235);
+    }
+}
