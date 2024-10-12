@@ -1,10 +1,29 @@
 input[type="submit"] {
     padding: 10px;
     border-radius: 5px;
-    background-image: 
-    linear-gradient(to right, rgb(153, 153, 224), rgb(173, 202, 173));
+    /* background-image:  
+    linear-gradient(to right, rgb(153, 153, 224), rgb(173, 202, 173));*/
     margin: 10px 0;
     width: 6rem;
+}
+
+.formatter_top {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    margin:0 .5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.post {
+    width: 100% !important;
+    padding: 0.5rem;
+    min-height: 300px;
+    border: 1px solid gray;
+}
+.save_btn button {
+    border: 1px solid gray;
+    border-radius: .3rem;
+    padding: .5rem;
 }
 
 input[type="text"]{

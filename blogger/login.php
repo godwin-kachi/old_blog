@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.output.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
@@ -55,5 +55,12 @@
         </div>
       </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" ></script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/functions.js"></script>
+    
+    
+
   </body>
 </html>

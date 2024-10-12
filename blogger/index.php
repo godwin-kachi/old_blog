@@ -464,7 +464,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" ></script>
-    <script src="assets/js/dash.js"></script>
+    <!-- <script src="assets/js/dash.js"></script> -->
     <script src="assets/js/get_blogs.js"></script>
   </body>
 </html>

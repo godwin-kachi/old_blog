@@ -14,7 +14,9 @@
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
-    ></script>
+    ></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     
     <script src="./assets/js/init-alpine.js"></script>
   </head>
@@ -39,7 +41,7 @@
               
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="index.html"
+                href="index.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -67,7 +69,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="forms.html"
+                href="create_post.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -124,7 +126,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="index.html"
+                href="index.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -152,7 +154,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="create_post.html"
+                href="create_post.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -390,8 +392,7 @@
                     <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
+                        href="#" id="logout__">
                         <svg
                           class="w-4 h-4 mr-3"
                           aria-hidden="true"
@@ -425,18 +426,33 @@
             >
               Create Blogs
             </h4>
-            <form action="" method="post">
+            <form action="../blogpoint/blogapi/createblog.php" method="post" enctype="multipart/form-data">
               <div>
-                <input type="text" name="blog_title" required id="blog_title" placeholder="Blog Title">
+                <input type="text" name="user_id" required id="user_id" value="" hidden>
+                <input type="text" name="blogserv_lsc" required id="lsc" value="" hidden>
+                <input type="text" name="blogserv_usc" required id="usc" value="" hidden>
+                <input type="text" name="blogserv_ssc" required id="ssc" value="" hidden>
+
+              </div>
+             
+              <div>
+                <input type="text" name="title" required id="title" placeholder="Blog Title">
               </div>
               <div class="form-group"> 
                 <label for="featured">Featured Image</label>
-                <input type="file" name="featured" id="featured" required>
+                <input type="file" name="image" id="featured" required>
               </div>
               <div id="blog_editor" class="blog_editor"></div>
+    
+               <input type="text" name="content" id="post" class="post" hidden>
               <input type="text" name="tags" id="tags" required placeholder="tags">
               <input type="text" name="categories" required id="categories" placeholder="Enter a category to group the post">
-              <input type="submit" value="Post">
+               <div class="save_btn">
+                <button type="button" id="saveBtn">Save</button>
+                <input type="submit" name="submitbtn" value="Post">
+              </div>
+              
+
             </form>
             
           </div>
@@ -444,9 +460,9 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script> 
 
-<!-- Initialize Quill editor -->
+<!-- Initialize Quill editor  -->
 <script>
   const quill = new Quill('#blog_editor', {
     modules: {
@@ -457,6 +473,10 @@
     theme: 'snow'
   });
 </script>
-    <script src="assets/js/create_blog.js"></script>
+ <script src="assets/js/editor.js"></script>
+<script src="assets/js/functions.js"></script>
+    <!-- <script src="assets/js/create_blog.js"></script> -->
+    <script src="assets/js/create_blog_copy.js"></script>
+    
   </body>
 </html>

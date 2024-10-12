@@ -99,7 +99,7 @@ if ($login_stmt['outputStatus'] == 1000) {
 
         // set response code - 404 not found
         http_response_code(200);
-        echo json_encode(["message" => "Login successful.", $usc_name => $user_to_login['user_code'], $lsc_name => $lost_code, $ssc_name => $sest_code, "status" => 1]);
+        echo json_encode(["message" => "Login successful.", $usc_name => $user_to_login['user_code'], $lsc_name => $lost_code, $ssc_name => $sest_code,"user_id"=>$user->user_id, "status" => 1]);
         return;
 
     }

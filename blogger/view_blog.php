@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE php>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,7 @@
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
     <script src="./assets/js/init-alpine.js"></script>
   </head>
@@ -40,7 +40,7 @@
               
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="index.html"
+                href="index.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -62,13 +62,10 @@
           </ul>
           <ul>
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
+            
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="forms.html"
+                href="create_post.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -125,7 +122,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="index.html"
+                href="index.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -153,7 +150,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="create_post.html"
+                href="create_post.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -407,7 +404,7 @@
                             d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                           ></path>
                         </svg>
-                        <span>Log out</span>
+                        <span class="xlout" onclick="logOut()">Log out</span>
                       </a>
                     </li>
                   </ul>
@@ -416,28 +413,71 @@
             </ul>
           </div>
         </header>
-        <main class="h-full pb-16 overflow-y-auto">
-          <p class="show_blogs">
+        <main class="h-full pb-16 overflow-y-auto mx-8">
+          <div class="container px-6 mx-auto grid">
+            <!-- CTA -->
 
-          </p>
+            <!-- General elements -->
+            <div class="w-full overflow-hidden rounded-lg shadow-xs mt-8">
+              <div class="w-full overflow-x-auto">
+                <div class="show_blogs">
+                  <table class="w-full whitespace-no-wrap">
+                  <tbody
+                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                   id="blog_content">
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3" >
+                            <p class="font-semibold">Blog Title</p>
+                      </td>
+                      <td class="px-4 py-3 text-xs" style="text-wrap: wrap; text-align: justify;">
+                        <p id="blog_title"></p>
+                      </td>
+                    </tr>
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3" >
+                            <p class="font-semibold">Featured Image</p>
+                      </td>
+                      <td class="px-4 py-3 text-xs" style="text-wrap: wrap; text-align: justify;">
+                        <img src="" alt="Irregular Image file path" id="blog_img">
+                      </td>
+                    </tr>
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3" >
+                            <p class="font-semibold">Blog Post</p>
+                      </td>
+                      <td class="px-4 py-3 text-xs" style="text-wrap: wrap; text-align: justify;">
+                        <p id="blog_body"></p>
+                      </td>
+                    </tr>
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3" >
+                            <p class="font-semibold">Blog Tags</p>
+                      </td>
+                      <td class="px-4 py-3 text-xs" style="text-wrap: wrap; text-align: justify;">
+                        <p id="blog_tags"></p>
+                      </td>
+                    </tr>
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3" >
+                            <p class="font-semibold">Blog Categories</p>
+                      </td>
+                      <td class="px-4 py-3 text-xs" style="text-wrap: wrap; text-align: justify;">
+                        <p id="blog_cat"></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> 
+          </div>
         </main>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-    <script src=""></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script> -->
+    <script src="assets/js/functions.js"></script>
 
-<!-- Initialize Quill editor -->
-<script>
-  const quill = new Quill('#blog_editor', {
-    modules: {
-      toolbar: true,
 
-    },
-    placeholder: "Say the words...",
-    theme: 'snow'
-  });
-</script>
+
     <script src="assets/js/view_blog.js"></script>
   </body>
-</html>
+</>

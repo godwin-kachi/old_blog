@@ -1,9 +1,19 @@
+const session_check = sessionStorage.getItem('blogserv_ssc');
+console.log(session_check)
+
+if(session_check==null){
+    alert('User authentication required')
+    location.href= '../../old_blog/blogger/login.php';
+}
+
+
 
 const blog_viewer = document.getElementById('blog_content')
 
 axios.get('../blogpoint/blogapi/getblogs.php')
 // axios.get('old_blog/blogpoint/blog/getall')
 .then((response) => {
+  console.log(response)
     let holder=response.data.result;
     console.log(response.data.result);
     holder.forEach((blog) => {
@@ -12,7 +22,7 @@ axios.get('../blogpoint/blogapi/getblogs.php')
                             <p class="font-semibold" id="blog_title">${blog.title}</p>
                       </td>
                       <td class="px-4 py-3 text-xs" style="text-wrap: wrap; text-align: justify;">
-                        <p id="blog_preview"><a href="view_blog.php?blog_id=${blog.blog_id}">${blog.content}</a></p>
+                        <p id="blog_preview"><a href="view_blog.php?blog_id=${blog.blog_id}">${blog.content.substring(0, 200)}</a></p>
                       </td>
                       <td class="px-4 py-3 text-sm" id="blog_published">
                         Great Performance
